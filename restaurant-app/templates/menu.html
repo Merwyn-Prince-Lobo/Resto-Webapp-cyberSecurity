@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}Menu - Restaurant Management System{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: var(--menu-bg-main);
+    }
+    .main-content {
+        background-color: var(--menu-bg-main);
+    }
+</style>
+
+<div class="menu-header">
+    <h2>Our Menu</h2>
+    <p class="subtitle">FRESH,AROMATIC,DELICIOUS-RIGHT ON YOUR PLATE</p>
+</div>
+
+<div class="menu-grid">
+    <div class="menu-category">
+        <h3> Main Courses</h3>
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Margherita Pizza</span>
+                    <span class="item-price">$12.99</span>
+                </div>
+                <p class="item-description">Fresh mozzarella, basil, tomato sauce <br>
+                    Proof that sometimes all you need is cheese, sauce, and trust.
+                </p>
+                {% if session.username %}
+            
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Margherita Pizza">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Grilled Chicken</span>
+                    <span class="item-price">$15.99</span>
+                </div>
+                <p class="item-description">With seasonal vegetables and herbs
+                    <br>
+                    Marinated longer than your last relationship :pp
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Grilled Chicken">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Chicken Burger</span>
+                    <span class="item-price">$13.99</span>
+                </div>
+                <p class="item-description">juicy chicken, lettuce, tomato, special sauce <br>
+                    One bite closer to happiness
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Beef Burger">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Pasta Carbonara</span>
+                    <span class="item-price">$14.99</span>
+                </div>
+                <p class="item-description">Creamy sauce, bacon, parmesan <br>
+                Creamy, cheesy, pancetta-powered happiness on a plate</p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Pasta Carbonara">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h3>🥗 Salads & Sides</h3>
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Caesar Salad</span>
+                    <span class="item-price">$9.99</span>
+                </div>
+                <p class="item-description">Romaine, parmesan, croutons, Caesar dressing</p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Caesar Salad">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">French Fries</span>
+                    <span class="item-price">$4.99</span>
+                </div>
+                <p class="item-description">Crispy golden fries with sea salt</p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="French Fries">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h3> 🍰Desserts</h3>
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Chocolate Cake</span>
+                    <span class="item-price">$7.99</span>
+                </div>
+                <p class="item-description">Rich chocolate layer cake
+                    <br>his chocolate cake isn’t asking for attention… it demands it.
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Chocolate Cake">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Tiramisu</span>
+                    <span class="item-price">$8.99</span>
+                </div>
+                <p class="item-description">Classic Italian dessert <br>
+                    Sweet, strong, and keeps you coming back for more
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Tiramisu">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h3>🍸 The Mixery</h3>
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Cosmopolitan</span>
+                    <span class="item-price">$4.99</span>
+                </div>
+                <p class="item-description">Classic cocktail with a twist of citrus</p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Cosmopolitan">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Martini</span>
+                    <span class="item-price">$3.99</span>
+                </div>
+                <p class="item-description"> prepared martini with premium spirits</p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Martini">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Margarita</span>
+                    <span class="item-price">$5.99</span>
+                </div>
+                <p class="item-description">Tequila, lime juice, triple sec <br>
+                    Sweet, salty, and dangerously smooth
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Margarita">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Mojito</span>
+                    <span class="item-price">$5.49</span>
+                </div>
+                <p class="item-description">White rum, mint, lime, soda <br>
+                    Refreshing, minty, and pure summer vibes
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Mojito">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Piña Colada</span>
+                    <span class="item-price">$6.99</span>
+                </div>
+                <p class="item-description">Rum, coconut cream, pineapple juice <br>
+                    Tropical escape in a glass
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Piña Colada">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Old Fashioned</span>
+                    <span class="item-price">$6.49</span>
+                </div>
+                <p class="item-description">Whiskey, bitters, sugar, orange twist <br>
+                    Classic elegance redefined
+                </p>
+                {% if session.username %}
+                <form method="POST" action="{{ url_for('place_order') }}" class="order-form">
+                    <input type="hidden" name="item" value="Old Fashioned">
+                    <input type="number" name="quantity" value="1" min="1" max="10" class="quantity-input">
+                    <button type="submit" class="btn-order">Order</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if not session.username %}
+<div class="login-prompt">
+    <p>Please <a href="{{ url_for('login') }}">login</a> or <a href="{{ url_for('register') }}">register</a> to place orders</p>
+</div>
+{% endif %}
+{% endblock %}

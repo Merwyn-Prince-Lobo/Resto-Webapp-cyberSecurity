@@ -1,0 +1,30 @@
+2026-02-04 22:03:09,817 - ALERT - Type: 404_ERROR | IP: 10.160.127.147 | Details: Page not found: /favicon.ico
+2026-02-04 22:08:13,704 - ALERT - Type: 404_ERROR | IP: 192.168.231.1 | Details: Page not found: /favicon.ico
+2026-02-07 10:57:25,143 - ALERT - Type: 404_ERROR | IP: 172.1.3.121 | Details: Page not found: /favicon.ico
+2026-02-07 11:22:37,696 - ALERT - Type: 404_ERROR | IP: 172.1.3.121 | Details: Page not found: /favicon.ico
+2026-02-07 11:33:34,783 - ALERT - Type: FAILED_LOGIN | IP: 172.1.3.121 | Details: Failed login attempt for username: jeffrey epstein
+2026-02-07 11:33:46,450 - ALERT - Type: FAILED_LOGIN | IP: 172.1.3.121 | Details: Failed login attempt for username: jeffrey epstein
+2026-02-07 12:19:24,489 - ALERT - Type: 404_ERROR | IP: 172.1.3.121 | Details: Page not found: /favicon.ico
+2026-02-07 13:18:24,029 - ALERT - Suspicious input detected: ' OR '1'='1' -- from IP: 172.1.3.121
+2026-02-07 13:18:24,029 - ALERT - Type: INVALID_LOGIN | IP: 172.1.3.121 | Details: Invalid username pattern: ' OR '1'='1' --
+2026-02-07 13:21:06,236 - ALERT - Type: 404_ERROR | IP: 172.1.3.120 | Details: Page not found: /favicon.ico
+2026-02-07 13:23:18,935 - ALERT - Suspicious input detected: ' OR '1'='1' -- from IP: 172.1.3.121
+2026-02-07 13:23:18,935 - ALERT - Type: INVALID_LOGIN | IP: 172.1.3.121 | Details: Invalid username pattern: ' OR '1'='1' --
+2026-02-07 13:25:18,533 - ALERT - Type: FAILED_LOGIN | IP: 172.1.3.121 | Details: Failed login attempt for username: test
+2026-02-07 13:25:36,460 - ALERT - Type: UNAUTHORIZED_ACCESS | IP: 127.0.0.1 | Details: Attempted to access /lab/billing without login
+2026-02-07 13:25:37,497 - ALERT - Type: 404_ERROR | IP: 127.0.0.1 | Details: Page not found: /favicon.ico
+2026-02-07 13:26:29,305 - ALERT - Type: PRIVILEGE_ESCALATION | IP: 127.0.0.1 | Details: User test attempted to access admin area
+2026-02-07 13:35:34,884 - ALERT - Type: PRIVILEGE_ESCALATION | IP: 172.1.3.121 | Details: User test attempted to access admin area
+2026-02-07 13:36:20,927 - ALERT - Type: INVALID_LOGIN | IP: 172.1.3.121 | Details: Invalid username pattern: SELECT * FROM orders WHERE item LIKE '%' OR '1'='1
+2026-02-07 13:37:10,101 - ALERT - Type: PRIVILEGE_ESCALATION | IP: 127.0.0.1 | Details: User test attempted to access admin area
+2026-02-07 13:37:24,377 - ALERT - Type: PRIVILEGE_ESCALATION | IP: 127.0.0.1 | Details: User test attempted to access admin area
+2026-02-07 13:38:31,843 - ALERT - Type: PRIVILEGE_ESCALATION | IP: 127.0.0.1 | Details: User test attempted to access admin area
+2026-02-07 13:38:38,055 - ALERT - Type: PRIVILEGE_ESCALATION | IP: 127.0.0.1 | Details: User test attempted to access admin area
+2026-02-07 13:39:17,009 - ALERT - Type: FAILED_LOGIN | IP: 127.0.0.1 | Details: Failed login attempt for username: attacker
+2026-02-07 13:40:46,187 - ALERT - Type: SQLI_EXPLOITER | IP: 127.0.0.1 | Details: User attacker claimed trap coupon: TRAP_SQLI_EXPLOIT - Likely SQL injection exploitation
+2026-02-07 13:44:18,508 - ALERT - Suspicious input detected: admin' OR '1'='1' -- from IP: 127.0.0.1
+2026-02-07 13:44:18,508 - ALERT - Type: INVALID_LOGIN | IP: 127.0.0.1 | Details: Invalid username pattern: admin' OR '1'='1' --
+2026-02-07 13:44:33,028 - ALERT - Suspicious input detected: admin' OR '1'='1' -- from IP: 127.0.0.1
+2026-02-07 13:44:33,029 - ALERT - Type: INVALID_LOGIN | IP: 127.0.0.1 | Details: Invalid username pattern: admin' OR '1'='1' --
+2026-02-07 13:45:15,731 - ALERT - Type: LOGIN_SQLI_EXPLOIT | IP: 127.0.0.1 | Details: User admin authentication via SQL injection | Payload: admin' OR '1'='1' --
+2026-02-08 22:26:33,304 - ALERT - Type: 404_ERROR | IP: 10.14.143.190 | Details: Page not found: /favicon.ico

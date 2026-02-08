@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Login</h2>
+        <p class="auth-subtitle">Enter your credentials</p>
+
+        <form method="POST" action="{{ url_for('login_advanced') }}" class="auth-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Enter your username" autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required
+                       placeholder="Enter your password" autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn-submit">Login</button>
+        </form>
+
+        <div class="auth-links">
+            <p><a href="{{ url_for('login') }}">Back to main login</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

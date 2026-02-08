@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Lab Billing - Restaurant Management System{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="section">
+        <h2>Billing & Coupon System (Cybersecurity Training Lab)</h2>
+        
+        <div class="warning-box">
+            <h3>⚠️ Training Environment Notice</h3>
+            <p><strong>This is a controlled lab environment containing intentional vulnerabilities for educational purposes only.</strong></p>
+            <ul>
+                <li>This endpoint is ONLY active when LAB_MODE is enabled</li>
+                <li>Contains an intentional SQL injection vulnerability for demonstration</li>
+                <li>Used for cybersecurity training and exploit detection</li>
+                <li>All exploitation attempts are logged and monitored</li>
+                <li>Never use unsafe patterns like this in production code</li>
+            </ul>
+        </div>
+
+        <div class="billing-card">
+            <h3>Apply Coupon Code</h3>
+            <p>Enter a coupon code for a discount on your orders.</p>
+            
+            <form method="POST" action="{{ url_for('lab_billing') }}" class="form-inline">
+                <div class="form-group">
+                    <label for="coupon_code">Coupon Code:</label>
+                    <input type="text" id="coupon_code" name="coupon_code" 
+                           placeholder="Enter coupon code" required>
+                </div>
+                <button type="submit" class="btn-submit">Apply Coupon</button>
+            </form>
+
+            {% if coupon_found %}
+            <div class="result-box {% if is_trap %}trap-detected{% endif %}">
+                <h4>{{ "🚨 Trap Coupon Detected!" if is_trap else "✅ Coupon Applied" }}</h4>
+                <p>Discount: {{ discount }}%</p>
+                {% if is_trap %}
+                <p class="trap-message">This security trap indicates an attempt to exploit the SQL injection vulnerability.</p>
+                <p class="trap-message">Your actions are being logged and reviewed.</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="info-box">
+            <h3>About This Training Lab</h3>
+            <p><strong>Challenge:</strong> Can you exploit the SQL injection vulnerability in this endpoint?</p>
+            
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li>Understand how SQL injection works</li>
+                <li>Learn to identify unsafe database queries</li>
+                <li>See how trap mechanisms can detect exploitation</li>
+                <li>Review security logging and monitoring</li>
+                <li>Compare unsafe vs. parameterized queries</li>
+            </ul>
+
+            <h4>Safe Patterns (Like the Rest of the App):</h4>
+            <pre><code># ✅ SAFE - Parameterized Query
+cursor.execute("SELECT * FROM coupons WHERE code = ?", (user_input,))
+
+# ❌ UNSAFE - String Concatenation (This endpoint)
+query = f"SELECT * FROM coupons WHERE code = '{user_input}'"
+cursor.execute(query)</code></pre>
+
+            <h4>Hidden Database Table:</h4>
+            <p>There is a hidden table in the database not referenced in the UI: <code>secret_coupons</code></p>
+            <p>Can you find it and retrieve records using SQL injection? A trap coupon awaits!</p>
+
+            <h4>Security Alerts Tab:</h4>
+            <p>If you're logged in as admin, visit the <a href="{{ url_for('admin_logs') }}">Security Logs</a> to see how exploitation attempts are detected and logged.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.warning-box, .info-box {
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.warning-box h3, .info-box h3 {
+    color: #856404;
+    margin-top: 0;
+}
+
+.warning-box ul, .info-box ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.warning-box li, .info-box li {
+    margin: 8px 0;
+}
+
+.billing-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-inline {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+
+.form-inline .form-group {
+    flex: 1;
+}
+
+.form-inline input {
+    width: 100%;
+}
+
+.result-box {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    color: #155724;
+}
+
+.result-box.trap-detected {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.trap-detected h4 {
+    color: #721c24;
+    margin-top: 0;
+}
+
+.trap-message {
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.info-box pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.info-box code {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+</style>
+{% endblock %}

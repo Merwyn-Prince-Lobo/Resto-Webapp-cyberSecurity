@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Search Orders - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="section">
+        <h2>Search Orders (Admin)</h2>
+        
+        <div class="search-box">
+            <form method="GET" action="{{ url_for('admin_orders_search') }}" class="search-form">
+                <input type="text" name="q" placeholder="Search by item name or username..." 
+                       value="{{ search_term }}" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        {% if search_term %}
+        <div class="results-section">
+            <h3>Search Results for: "{{ search_term }}"</h3>
+            
+            {% if orders %}
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Username</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order['id'] }}</td>
+                        <td>{{ order['username'] }}</td>
+                        <td>{{ order['item'] }}</td>
+                        <td>{{ order['quantity'] }}</td>
+                        <td>{{ order['status'] }}</td>
+                        <td>{{ order['created_at'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="no-results">
+                <p>No orders found for: "{{ search_term }}"</p>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="back-nav">
+            <a href="{{ url_for('admin_orders') }}">← Back to All Orders</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}
+
+.results-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.results-section h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table thead {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.orders-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+.orders-table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.orders-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.no-results {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    color: #666;
+}
+
+.back-nav {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-nav a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-nav a:hover {
+    text-decoration: underline;
+}
+</style>
+{% endblock %}

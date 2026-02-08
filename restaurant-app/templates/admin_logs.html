@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Security Logs - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+    <div class="page-header">
+        <h2> Security Alert Logs</h2>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn-back">← Back to Dashboard</a>
+    </div>
+
+    <div class="security-info-box">
+        <h3> Blue Team Security Monitoring</h3>
+        <p>This log displays all suspicious activities detected by the security system:</p>
+        <ul>
+            <li>Failed login attempts</li>
+            <li>Malicious input patterns (SQL injection, XSS attempts)</li>
+            <li>Unauthorized access attempts</li>
+            <li>Privilege escalation attempts</li>
+            <li>Invalid data submissions</li>
+        </ul>
+    </div>
+
+    <div class="logs-container">
+        <h3>Recent Security Alerts</h3>
+        {% if alerts %}
+        <div class="log-entries">
+            {% for alert in alerts %}
+            <div class="log-entry">
+                <span class="log-icon">⚠️</span>
+                <span class="log-text">{{ alert|safe }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p> No security alerts - System is secure</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="log-info">
+        <p><strong>Note:</strong> All alerts are automatically logged to <code>logs/security_alerts.log</code></p>
+        <p>Regular access logs are stored in <code>logs/access.log</code></p>
+    </div>
+</div>
+{% endblock %}

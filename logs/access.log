@@ -1,0 +1,6 @@
+2026-02-08 22:26:31,834 - IP: 10.14.143.190 | Action: VIEW_MENU
+2026-02-08 22:26:39,154 - IP: 10.14.143.190 | Action: LOGIN | User: admin | Details: Successful login - Role: admin
+2026-02-08 22:26:39,174 - IP: 10.14.143.190 | Action: VIEW_ADMIN_DASHBOARD | User: admin
+2026-02-08 22:26:40,806 - IP: 10.14.143.190 | Action: VIEW_MENU | User: admin
+2026-02-08 22:26:42,149 - IP: 10.14.143.190 | Action: VIEW_ADMIN_DASHBOARD | User: admin
+2026-02-08 22:26:43,348 - IP: 10.14.143.190 | Action: VIEW_ALL_ORDERS | User: admin
